@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "ExampleApp.Ui": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
