@@ -1,8 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+interface WeatherForecast {
+  date: string,
+  temperatureC: string,
+  temperatureF: string,
+  summary: string
+}
+
+async function fetchWeather() {
+  const response = await fetch("/WeatherForecast");
+  return await response.json();
+}
+
 function App() {
+  const [weather, setWeather] = useState<WeatherForecast>();
+  useEffect(() => {
+    fetchWeather().then(setWeather)
+  }, [])
+
   return (
     <div className="App">
       <header className="App-header">
@@ -18,6 +35,7 @@ function App() {
         >
           Learn React
         </a>
+        <span>{ JSON.stringify(weather) }</span>
       </header>
     </div>
   );
