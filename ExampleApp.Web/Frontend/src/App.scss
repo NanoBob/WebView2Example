@@ -1,0 +1,68 @@
+body {
+  background-color: #282c34;
+  min-height: 100vh;
+  color: white;
+}
+
+.app {
+  padding: 8px;
+}
+
+.item-container {
+  .item {
+    display: flex;
+
+    .item-checker {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: white;
+      width: 96px;
+      height: 96px;
+      border: 1px solid black;
+      margin-bottom: 8px;
+      
+      user-select: none;
+
+      .checkmark {
+        color: darkcyan;
+        font-size: 80px;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .item-text {
+      display: flex;
+      flex-direction: column;
+
+      .item-title {
+        padding-left: 16px;
+        font-size: 32px;
+      }
+      .item-description {
+        padding-left: 24px;
+        font-size: 12px;
+      }
+    }
+
+    .item-delete {
+      display: none;
+    }
+
+    &:hover {
+      .item-delete {
+        display: block;
+        margin-left: 16px;
+      }
+    }
+  }
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+}

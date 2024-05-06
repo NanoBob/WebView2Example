@@ -1,3 +1,5 @@
+using ExampleApp.Web.Persistence;
+
 namespace ExampleApp.Web;
 
 public class WebApp
@@ -11,16 +13,16 @@ public class WebApp
             WebRootPath = "Frontend/build"
         });
 
-        // Add services to the container.
-
-        builder.Services.AddControllers();
         builder.Services
             .AddControllers()
             .AddApplicationPart(typeof(WebApp).Assembly)
             .AddControllersAsServices();
-        // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+        builder.Services.AddControllers();
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
+
+        builder.Services.AddDbContext<TodoContext>();
 
         app = builder.Build();
 
